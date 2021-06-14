@@ -1,0 +1,69 @@
+#include<bits/stdc++.h>
+using namespace std;
+void unions(int n,int a[],int m,int b[])
+{
+	int i= 0, j= 0;
+    while (i < m && j < n) {
+        if (a[i] < b[j])
+            cout << a[i++] << " ";
+ 
+        else if (b[j] < a[i])
+            cout << b[j++] << " ";
+ 
+        else {
+            cout << b[j++] << " ";
+            i++;
+        }
+    }
+ 
+    /* Print remaining elements of the larger array */
+    while (i < m)
+        cout << a[i++] << " ";
+ 
+    while (j < n)
+        cout << b[j++] << " ";
+}
+ void intersection(int n,int a[],int m,int b[]){
+
+	int i= 0, j= 0;
+    while (i < m && j < n) {
+    	if (a[i] < b[j])
+            i++;
+ 
+        else if (b[j] < a[i])
+            j++;
+ 
+        else {
+            cout << b[j++] << " ";
+            i++;
+        }
+       
+        }
+ }
+void printArr(int n,int a[])
+{
+	int i;
+	for(i=0;i<n;i++)
+	{
+		cout<<a[i]<<endl;
+	}
+}
+int main()
+{
+	int n,m,i;
+	cin>>m;
+	int a[m];
+	for(i=0;i<m;i++)
+	{
+		cin>>a[i];
+	}
+	cin>>n;
+	int b[n];
+	for(i=0;i<n;i++)
+	{
+		cin>>b[i];
+	}
+	intersection(n,a,m,b);
+	//printArr(n,a,m,b);
+	return 0;
+}
