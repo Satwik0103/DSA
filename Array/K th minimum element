@@ -1,0 +1,102 @@
+#include<bits/stdc++.h>
+using namespace std;
+void solve(int n,int a[],int k)
+{
+sort(a,a+n);
+cout<<k<<" max Element"<<a[n-k]<<endl;
+cout<<k<<"min element"<<a[k-1]<<endl;
+}
+void printArr(int n,int a[])
+{
+	int i;
+	for(i=0;i<n;i++)
+	{
+		cout<<a[i]<<endl;
+	}
+}
+int main()
+{
+	int n,i,k;
+	cin>>n>>k;
+	int a[n];
+	for(i=0;i<n;i++)
+	{
+		cin>>a[i];
+	}
+	solve(n,a,k);
+	//printArr(n,a);
+	return 0;
+}
+/*****************************/
+//Hash map
+#include<bits/stdc++.h>
+using namespace std;
+/*void solve(int n,int a[],int k)
+{
+sort(a,a+n);
+cout<<k<<" max Element"<<a[n-k]<<endl;
+cout<<k<<"min element"<<a[k-1]<<endl;
+}
+void printArr(int n,int a[])
+{
+	int i;
+	for(i=0;i<n;i++)
+	{
+		cout<<a[i]<<endl;
+	}
+}
+int main()
+{
+	int n,i,k;
+	cin>>n>>k;
+	int a[n];
+	for(i=0;i<n;i++)
+	{
+		cin>>a[i];
+	}
+	solve(n,a,k);
+	//printArr(n,a);
+	return 0;
+}*/
+//hash map
+void solve(map<int,int> m,int k)
+{
+	int freq=0;
+for(auto it=m.begin();it!=m.end();it++)
+{
+	freq+=it->second;
+	if(freq>=k)
+	{
+		cout<<k<<" min element is"<<it->first<<endl;
+		break;
+	}
+}
+
+
+}
+void printArr(int n,int a[])
+{
+	int i;
+	for(i=0;i<n;i++)
+	{
+		cout<<a[i]<<endl;
+	}
+}
+int main()
+{
+	int n,i,k;
+	cin>>n>>k;
+	vector<int>a(n);
+	for(i=0;i<n;i++)
+	{
+		cin>>a[i];
+	}
+	map<int,int>m;
+	for(i=0;i<n;i++)
+	{
+		m[a[i]]+=1;
+	}
+	solve(m,k);
+	//printArr(n,a);
+	return 0;
+}
