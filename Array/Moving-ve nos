@@ -1,0 +1,38 @@
+#include<bits/stdc++.h>
+using namespace std;
+void solve(int n,int a[])
+{
+	int i=0,j=0, k=0,b[n],c[n];
+	for(i=0;i<n;i++)
+	{
+		if(a[i]<0){
+			if(i!=j)
+				{
+					swap(a[i],a[j]);
+
+				}j++;
+		}
+	}
+}
+ 
+void printArr(int n,int a[])
+{
+	int i;
+	for(i=0;i<n;i++)
+	{
+		cout<<a[i]<<endl;
+	}
+}
+int main()
+{
+	int n,i;
+	cin>>n;
+	int a[n];
+	for(i=0;i<n;i++)
+	{
+		cin>>a[i];
+	}
+	solve(n,a);
+	printArr(n,a);
+	return 0;
+}
