@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+int solve(int n,int nums[])
+{
+	 int i,z=0,f;
+        vector<int>v(n);
+        for(i=0;i<n;i++)
+        {
+            v[nums[i]]+=1;
+            if(v[nums[i]]>1){
+                z=1;
+                f=i;
+                break;
+            }
+        }
+        if(z==1)
+        {
+        	return nums[f];
+        }
+        else 
+        	return -1;
+}
+int main()
+{
+	int n,i,x;
+	cin>>n;
+	int a[n];
+	for(i=0;i<n;i++)
+	{
+		cin>>a[i];
+	}
+	x=solve(n,a);
+	//printArr(n,a);
+	cout<<x<<endl;
+	return 0;
+}
