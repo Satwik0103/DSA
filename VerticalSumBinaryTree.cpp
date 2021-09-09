@@ -10,7 +10,7 @@ struct node{
 		left=NULL;
 		right=NULL;
 	}
-}
+};
 void VSum(struct node*root,int hd,map<int,int>&m){
 	if(root==NULL){
 		return;
@@ -20,12 +20,12 @@ void VSum(struct node*root,int hd,map<int,int>&m){
 	VSum(root->right,hd+1,m);
 
 }
-void peintVSum(struct node*root){
+void printVSum(struct node*root){
 	map<int,int>m;
 	map < int, int> :: iterator it;
   
     // populate the map
-    VSum(root, 0, Map);
+    VSum(root, 0, m);
   
     // Prints the values stored by VerticalSumUtil()
     for (it = m.begin(); it != m.end(); ++it)
@@ -37,11 +37,11 @@ void peintVSum(struct node*root){
 }
 
 int main(){
-	return 0;
 	struct node*root=new node(1);
 	root->left=new node(2);
 	root->right=new node(3);
-	root->left->left=new node(4);
+	root->left->right=new node(4);
 	root->right->left=new node(5);
 	printVSum(root);
+	return 0;
 }
