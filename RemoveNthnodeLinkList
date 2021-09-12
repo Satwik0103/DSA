@@ -17,15 +17,7 @@ void middle(struct node*head){
 	}
 	cout<<slow->data<<endl;
 }
-
-void printnode(struct node*head2){
-	while(head2!=NULL)
-	{
-		cout<<head2->data;
-		head2=head2->next;
-	}
-}
-void removenthnode(struct node*head,int k){
+struct node* removenthnode(struct node*head,int k){
 	node*start=new node(0);
 	start->next=head;
 	node*slow=head;
@@ -38,7 +30,14 @@ void removenthnode(struct node*head,int k){
 		fast=fast->next;
 	}
 	slow->next=slow->next->next;
-	printnode(start->next);
+	return start->next;
+}
+void printnode(struct node*head2){
+	while(head2!=NULL)
+	{
+		cout<<head2->data;
+		head2=head2->next;
+	}
 }
 int main(){
 	struct node*head=new node(1);
@@ -49,9 +48,9 @@ int main(){
 	head->next->next->next->next->next=new node(6);
 	head->next->next->next->next->next->next=new node(7);
 	middle(head);
-	 
-	removenthnode(head,4);
-	//printnode(head2);
+	struct node*head2;
+	head2=removenthnode(head,4);
+	printnode(head2);
 
 	return 0;
 }
