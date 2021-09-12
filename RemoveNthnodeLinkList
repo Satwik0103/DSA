@@ -1,0 +1,57 @@
+#include<bits/stdc++.h>
+using namespace std;
+struct node{
+	int data;
+	node*next;
+	node(int val){
+		data=val;
+		next=NULL;
+	}
+};
+void middle(struct node*head){
+	node*slow=head;
+	node*fast=head;
+	while(fast!=NULL && fast->next!=NULL){
+		slow=slow->next;
+		fast=fast->next->next;
+	}
+	cout<<slow->data<<endl;
+}
+
+void printnode(struct node*head2){
+	while(head2!=NULL)
+	{
+		cout<<head2->data;
+		head2=head2->next;
+	}
+}
+void removenthnode(struct node*head,int k){
+	node*start=new node(0);
+	start->next=head;
+	node*slow=head;
+	node*fast=head;
+	for(int i=0;i<k;i++){
+		fast=fast->next;
+	}
+	while(fast->next!=NULL){
+		slow=slow->next;
+		fast=fast->next;
+	}
+	slow->next=slow->next->next;
+	printnode(start->next);
+}
+int main(){
+	struct node*head=new node(1);
+	head->next=new node(2);
+	head->next->next=new node(3);
+	head->next->next->next=new node(4);
+	head->next->next->next->next=new node(5);
+	head->next->next->next->next->next=new node(6);
+	head->next->next->next->next->next->next=new node(7);
+	middle(head);
+	 
+	removenthnode(head,4);
+	//printnode(head2);
+
+	return 0;
+}
